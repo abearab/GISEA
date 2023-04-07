@@ -1,5 +1,6 @@
 dependencies:
   - python
+  - pandas
   - pip
   - pip:
     - git+https://github.com/MaayanLab/blitzgsea.git
