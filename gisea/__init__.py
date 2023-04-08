@@ -8,7 +8,7 @@ def run_gsea(data,gmt,processes=6):
     for i,_ in enumerate(data.index):
         signature = data.iloc[i,:].reset_index()
 
-        result = blitzgsea.gsea(signature=signature,library=gmt,processes=processes)
+        result = blitz.gsea(signature=signature,library=gmt,processes=processes)
 
         FullResults[i] = result.to_dict()
         del result, signature
