@@ -1,2 +1,2 @@
 # GISEA
-Gene Set Enrichment Analysis of Gene Interaction datasets
+Pathway Analysis of Gene Interaction datasets
