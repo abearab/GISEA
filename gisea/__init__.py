@@ -1,5 +1,5 @@
-import run
-import utils
+from .run import *
+from .utils import *
 
 import os
 os.system('python setup_plots.py')
