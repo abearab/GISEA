@@ -1,32 +1,39 @@
 import pandas as pd
-import blitzgsea as blitz
+import igraph as ig
+from time import time
+import blitzgsea
 
 
-def run_gsea(data,gmt,processes=6):
+def runGISEA(mat, library, processes=6):
+    t0 = time()
+    print("runGISEA...")
+
     FullResults = {}
 
-    for i,_ in enumerate(data.index):
-        signature = data.iloc[i,:].reset_index()
+    for i, _ in enumerate(mat.index):
+        signature = mat.iloc[i, :].reset_index()
+        gene_name = mat.index[i]
 
-        result = blitz.gsea(signature=signature,library=gmt,processes=processes)
+        result = blitzgsea.gsea(signature, library, processes=processes)
 
-        FullResults[i] = result.to_dict()
+        FullResults[gene_name] = result.to_dict()
         del result, signature
+
+    print("done in %0.3fs" % (time() - t0))
     return FullResults
 
 
-def gsea_to_matrix(data, results, info, pivot=True):
+def gsea_to_matrix(results, info, obs_dict, pivot=True):
     """
     'es', 'nes', 'pval', 'sidak', 'fdr', 'geneset_size', 'leading_edge', 'leading_edge_size'
     """
-    obs_dict = dict([(str(i),gene) for i,gene in enumerate(data.index)])
-    mat = [(obs,term,val) for obs in results for term,val in results[obs][info].items()]
-    mat = pd.DataFrame(mat,columns=['Gene','Term',info])
+    mat = [(obs, term, val) for obs in results for term, val in results[obs][info].items()]
+    mat = pd.DataFrame(mat, columns=['Gene', 'Term', info])
     if pivot:
-        mat = mat.pivot(index=['Gene'],columns=['Term'],values=info)
+        mat = mat.pivot(index=['Gene'], columns=['Term'], values=info)
     mat.columns.name = None
-    
+
     mat = mat.loc[obs_dict.keys(),]
     mat.index = obs_dict.values()
-    
+
     return mat
