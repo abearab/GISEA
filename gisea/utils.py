@@ -3,7 +3,7 @@ import numpy as np
 import json
 from time import time
 import igraph as ig
-
+import gzip
 
 def read_data(jsonfilename):
     t0 = time()
