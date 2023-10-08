@@ -1,2 +1,2 @@
 # GISEA
-Pathway Analysis of Gene Interaction datasets
+Genetic Interaction Networks and Pathway Modules
