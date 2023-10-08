@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-from src import __version__
+from src.__version__ import __version__
 from pathlib import Path
 
 this_directory = Path(__file__).parent
@@ -13,7 +13,7 @@ setup(
     # install_requires=[
     #     "pandas",
     # ],
-    # version=__version__,
+    version=__version__,
     # other arguments omitted
     long_description=long_description,
     long_description_content_type='text/x-rst',
