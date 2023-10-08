@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-from src.__version__ import __version__
+from gisea.__version__ import __version__
 from pathlib import Path
 
 this_directory = Path(__file__).parent
