@@ -9,7 +9,7 @@ setup(
     python_requires='>=3.8',
     name='GISEA',
     description="Genetic Interaction Networks and Pathway Modules",
-    packages=find_packages(include=['src', 'src.*']),
+    packages=find_packages(include=['gisea', 'gisea.*']),
     # install_requires=[
     #     "pandas",
     # ],
