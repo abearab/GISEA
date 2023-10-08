@@ -13,7 +13,7 @@ setup(
     # install_requires=[
     #     "pandas",
     # ],
-    version=__version__,
+    # version=__version__,
     # other arguments omitted
     long_description=long_description,
     long_description_content_type='text/x-rst',
