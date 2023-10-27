@@ -1,6 +1,9 @@
 dependencies:
   - python
   - pandas
+  - matplotlib
+  - seaborn
   - pip
   - pip:
+    - PyComplexHeatmap
     - git+https://github.com/MaayanLab/blitzgsea.git
